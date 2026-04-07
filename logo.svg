@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 560" width="512" height="560">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAFBFC"/>
+      <stop offset="100%" style="stop-color:#F0F2F5"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E3A5F"/>
+      <stop offset="30%" style="stop-color:#2C5AA0"/>
+      <stop offset="70%" style="stop-color:#1E3A5F"/>
+      <stop offset="100%" style="stop-color:#2C5AA0"/>
+    </linearGradient>
+    <linearGradient id="blueGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A6BC5"/>
+      <stop offset="50%" style="stop-color:#2C5AA0"/>
+      <stop offset="100%" style="stop-color:#1E3A5F"/>
+    </linearGradient>
+    <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E3A5F;stop-opacity:0.5"/>
+      <stop offset="50%" style="stop-color:#3A6BC5;stop-opacity:0.95"/>
+      <stop offset="100%" style="stop-color:#1E3A5F;stop-opacity:0.5"/>
+    </linearGradient>
+    <linearGradient id="bladeGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E3A5F;stop-opacity:0.35"/>
+      <stop offset="50%" style="stop-color:#2C5AA0;stop-opacity:0.65"/>
+      <stop offset="100%" style="stop-color:#1E3A5F;stop-opacity:0.35"/>
+    </linearGradient>
+    <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#E8F0FE"/>
+      <stop offset="50%" style="stop-color:#B8D4F0"/>
+      <stop offset="100%" style="stop-color:#8AB8E0"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#1E3A5F" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1E3A5F" flood-opacity="0.1"/>
+    </filter>
+    <clipPath id="shieldClip">
+      <path d="M256 28 L448 120 L448 280 Q448 400 256 468 Q64 400 64 280 L64 120 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- ========== SHIELD BODY (LIGHT) ========== -->
+  <path d="M256 28 L448 120 L448 280 Q448 400 256 468 Q64 400 64 280 L64 120 Z"
+        fill="url(#shieldGrad)" filter="url(#softShadow)"/>
+  <path d="M256 28 L448 120 L448 280 Q448 400 256 468 Q64 400 64 280 L64 120 Z"
+        fill="none" stroke="url(#blueGrad)" stroke-width="2.5"/>
+  <path d="M256 42 L436 128 L436 276 Q436 390 256 454 Q76 390 76 276 L76 128 Z"
+        fill="none" stroke="url(#blueGrad)" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- ========== MANDALA PETALS ========== -->
+  <g clip-path="url(#shieldClip)">
+    <g transform="translate(256,252)">
+      <circle cx="0" cy="0" r="185" fill="none" stroke="#1E3A5F" stroke-width="1" opacity="0.15"/>
+      <circle cx="0" cy="0" r="175" fill="none" stroke="#2C5AA0" stroke-width="0.8" opacity="0.1"/>
+      <g id="petal">
+        <path d="M0,-170 Q12,-145 0,-125 Q-12,-145 0,-170" fill="#2C5AA0" opacity="0.06" stroke="#2C5AA0" stroke-width="0.7" stroke-opacity="0.2"/>
+      </g>
+      <use href="#petal" transform="rotate(22.5)"/>
+      <use href="#petal" transform="rotate(45)"/>
+      <use href="#petal" transform="rotate(67.5)"/>
+      <use href="#petal" transform="rotate(90)"/>
+      <use href="#petal" transform="rotate(112.5)"/>
+      <use href="#petal" transform="rotate(135)"/>
+      <use href="#petal" transform="rotate(157.5)"/>
+      <use href="#petal" transform="rotate(180)"/>
+      <use href="#petal" transform="rotate(202.5)"/>
+      <use href="#petal" transform="rotate(225)"/>
+      <use href="#petal" transform="rotate(247.5)"/>
+      <use href="#petal" transform="rotate(270)"/>
+      <use href="#petal" transform="rotate(292.5)"/>
+      <use href="#petal" transform="rotate(315)"/>
+      <use href="#petal" transform="rotate(337.5)"/>
+    </g>
+  </g>
+
+  <!-- ========== SUDARSHAN CHAKRA ========== -->
+  <g transform="translate(256,252)" filter="url(#shadow)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="120" fill="none" stroke="url(#blueGrad2)" stroke-width="4.5"/>
+    <circle cx="0" cy="0" r="128" fill="none" stroke="#1E3A5F" stroke-width="0.8" opacity="0.15"/>
+    <circle cx="0" cy="0" r="112" fill="none" stroke="#2C5AA0" stroke-width="0.8" opacity="0.15"/>
+
+    <!-- 8 main blades -->
+    <g id="blade">
+      <path d="M0,-118 C6,-95 7,-60 0,-30 C-7,-60 -6,-95 0,-118" fill="url(#bladeGrad)"/>
+      <line x1="0" y1="-115" x2="0" y2="-35" stroke="#5A8FD4" stroke-width="0.4" opacity="0.5"/>
+    </g>
+    <use href="#blade" transform="rotate(45)"/>
+    <use href="#blade" transform="rotate(90)"/>
+    <use href="#blade" transform="rotate(135)"/>
+    <use href="#blade" transform="rotate(180)"/>
+    <use href="#blade" transform="rotate(225)"/>
+    <use href="#blade" transform="rotate(270)"/>
+    <use href="#blade" transform="rotate(315)"/>
+
+    <!-- 8 secondary blades -->
+    <g id="blade2">
+      <path d="M0,-112 C4,-90 4,-65 0,-40 C-4,-65 -4,-90 0,-112" fill="url(#bladeGrad2)"/>
+    </g>
+    <use href="#blade2" transform="rotate(22.5)"/>
+    <use href="#blade2" transform="rotate(67.5)"/>
+    <use href="#blade2" transform="rotate(112.5)"/>
+    <use href="#blade2" transform="rotate(157.5)"/>
+    <use href="#blade2" transform="rotate(202.5)"/>
+    <use href="#blade2" transform="rotate(247.5)"/>
+    <use href="#blade2" transform="rotate(292.5)"/>
+    <use href="#blade2" transform="rotate(337.5)"/>
+
+    <!-- Inner ring -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="url(#blueGrad2)" stroke-width="2"/>
+
+    <!-- Dot ring -->
+    <g id="dotRing">
+      <circle cx="0" cy="-70" r="2.5" fill="#2C5AA0"/>
+      <circle cx="0" cy="-60" r="1.5" fill="#1E3A5F" opacity="0.4"/>
+    </g>
+    <use href="#dotRing" transform="rotate(30)"/>
+    <use href="#dotRing" transform="rotate(60)"/>
+    <use href="#dotRing" transform="rotate(90)"/>
+    <use href="#dotRing" transform="rotate(120)"/>
+    <use href="#dotRing" transform="rotate(150)"/>
+    <use href="#dotRing" transform="rotate(180)"/>
+    <use href="#dotRing" transform="rotate(210)"/>
+    <use href="#dotRing" transform="rotate(240)"/>
+    <use href="#dotRing" transform="rotate(270)"/>
+    <use href="#dotRing" transform="rotate(300)"/>
+    <use href="#dotRing" transform="rotate(330)"/>
+
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#1E3A5F" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- ========== CENTER OM ========== -->
+  <g transform="translate(256,252)">
+    <circle cx="0" cy="0" r="36" fill="url(#coreGrad)"/>
+    <circle cx="0" cy="0" r="28" fill="#FAFBFC" stroke="#2C5AA0" stroke-width="1.2"/>
+    <text x="0" y="12" text-anchor="middle" font-family="serif" font-size="36"
+          fill="#1E3A5F" font-weight="bold">ॐ</text>
+  </g>
+
+  <!-- ========== 13 RULE STARS ========== -->
+  <g transform="translate(256,252)">
+    <g id="ruleStar">
+      <polygon points="0,-148 3,-141 10,-141 5,-136 7,-129 0,-133 -7,-129 -5,-136 -10,-141 -3,-141"
+               fill="#2C5AA0" opacity="0.5"/>
+    </g>
+    <use href="#ruleStar" transform="rotate(27.69)"/>
+    <use href="#ruleStar" transform="rotate(55.38)"/>
+    <use href="#ruleStar" transform="rotate(83.08)"/>
+    <use href="#ruleStar" transform="rotate(110.77)"/>
+    <use href="#ruleStar" transform="rotate(138.46)"/>
+    <use href="#ruleStar" transform="rotate(166.15)"/>
+    <use href="#ruleStar" transform="rotate(193.85)"/>
+    <use href="#ruleStar" transform="rotate(221.54)"/>
+    <use href="#ruleStar" transform="rotate(249.23)"/>
+    <use href="#ruleStar" transform="rotate(276.92)"/>
+    <use href="#ruleStar" transform="rotate(304.62)"/>
+    <use href="#ruleStar" transform="rotate(332.31)"/>
+  </g>
+
+  <!-- ========== TITLE ========== -->
+  <text x="256" y="508" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif"
+        font-size="36" font-weight="700" fill="#1E3A5F" letter-spacing="8">RTA-GUARD</text>
+  <text x="256" y="532" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif"
+        font-size="10" fill="#2C5AA0" opacity="0.7" letter-spacing="4" font-weight="500">COSMIC ORDER  ·  AI GOVERNANCE  ·  ENTERPRISE SECURITY</text>
+</svg>
