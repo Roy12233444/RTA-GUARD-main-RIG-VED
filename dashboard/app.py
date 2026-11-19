@@ -14,7 +14,7 @@ from typing import Optional, List
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 
 import sys
 import logging
@@ -287,8 +287,17 @@ if sla_tracker is not None:
 
 class EventInput(BaseModel):
     """Manual event input for testing."""
-    session_id: str
-    input_text: str
+    session_id: str = "default-session"
+    input_text: Optional[str] = None
+    input: Optional[str] = None
+
+    @model_validator(mode="after")
+    def check_input_present(self):
+        if not self.input_text and not self.input:
+            raise ValueError("Either input_text or input is required")
+        if not self.input_text:
+            self.input_text = self.input
+        return self
 
 
 @app.get("/", include_in_schema=False)
@@ -296,7 +305,7 @@ async def dashboard():
     """Serve the dashboard HTML."""
     html_path = static_dir / "index.html"
     if html_path.exists():
-        return HTMLResponse(content=html_path.read_text())
+        return HTMLResponse(content=html_path.read_text(encoding="utf-8"))
     return HTMLResponse(content="<h1>RTA-GUARD Dashboard</h1><p>Dashboard loading...</p>")
 
 
@@ -387,7 +396,12 @@ async def check_input(event_input: EventInput, auth: bool = Depends(require_auth
                 "message": str(e)
             }
         else:
-            result = {"error": str(e)}
+            result = {
+                "allowed": False,
+                "session_id": event_input.session_id,
+                "error": str(e),
+                "message": str(e),
+            }
 
     # Broadcast to connected websockets
     await broadcast_event(result)
@@ -1632,7 +1646,7 @@ async def validate_plugin(data: dict, auth: bool = Depends(require_auth)):
         sandbox = PluginSandbox()
         entry = Path(source) / manifest.entry_point
         if entry.exists():
-            issues = sandbox.validate_ast(entry.read_text(), str(entry))
+            issues = sandbox.validate_ast(entry.read_text(encoding="utf-8"), str(entry))
             return {
                 "valid": len(issues) == 0,
                 "manifest": manifest.to_dict(),
